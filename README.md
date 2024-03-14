@@ -1,12 +1,14 @@
 ## Getting Started
 
-First, run the development server:
+1. First, run the development server:
 
-```bash
-npm run dev
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   npm run dev
+   ```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+2. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+3. You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 ## Demo Link
 
@@ -15,4 +17,3 @@ Visit [this link](https://intern-reactjs-via.vercel.app/) to see the demo produc
 ## OTP Access
 
 You can view the OTP code at `/OtpViewerConntroller/get-otp` endpoint when testing the password change feature at [this link](https://dev-fe-exam.viajsc.com/swagger/index.html).
-```
