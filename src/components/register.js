@@ -4,11 +4,15 @@ import axios from "axios";
 import { validateRegister } from "../app/validate/validate_register";
 import DialogRegister from "./dialog/DialogRegister";
 import { toast } from "react-toastify";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Register() {
   const router = useRouter();
   const [showDialog, setShowDialog] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [dialogSuccess, setDialogSuccess] = useState({
     message: "",
     error: false,
@@ -85,7 +89,7 @@ export default function Register() {
         "https://dev-fe-exam.viajsc.com/ExamUser/login",
         { userName: formData.userName, password: formData.password }
       );
-      console.log(">>>>>>>>>", response);
+
       if (response?.data.success) {
         router.push("home");
         sessionStorage.setItem("userName", formData.userName);
@@ -98,6 +102,13 @@ export default function Register() {
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+
+  const handleShowpassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const handleShowConfirmpassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   // call api city
@@ -237,7 +248,7 @@ export default function Register() {
             {/* row 2 */}
             <div className="flex justify-between mb-[27px]">
               {/* password */}
-              <div className="flex flex-col w-1/2-minus-24">
+              <div className="flex flex-col w-1/2-minus-24 relative">
                 <label
                   className="text-Tblack mb-[4px] text-[16px] leading-5 font-normal"
                   htmlFor=""
@@ -245,16 +256,24 @@ export default function Register() {
                   Mật Khẩu
                 </label>
                 <input
-                  type="text"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Nhập mật khẩu..."
                   value={formData.password}
                   onChange={handleChange}
                   name="password"
                   className="block  p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
                 />
+                <Image
+                  onClick={handleShowpassword}
+                  className=" absolute top-[30px] right-[7px] cursor-pointer"
+                  alt="icon"
+                  height={30}
+                  width={30}
+                  src={showPassword ? "/images/seeon.png" : "/images/seepw.png"}
+                ></Image>
               </div>
               {/* confirmPassword */}
-              <div className="flex flex-col w-1/2-minus-24">
+              <div className="flex flex-col w-1/2-minus-24 relative">
                 <label
                   className="text-Tblack mb-[4px] text-[16px] leading-5 font-normal"
                   htmlFor=""
@@ -262,13 +281,25 @@ export default function Register() {
                   Xác nhận mật khẩu
                 </label>
                 <input
-                  type="text"
+                  type={showConfirmPassword ? "text" : "password"}
                   placeholder="Xác nhận mật khẩu..."
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   className="block  p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
                 />
+                <Image
+                  onClick={handleShowConfirmpassword}
+                  className=" absolute top-[30px] right-[7px] cursor-pointer"
+                  alt="icon"
+                  height={30}
+                  width={30}
+                  src={
+                    showConfirmPassword
+                      ? "/images/seeon.png"
+                      : "/images/seepw.png"
+                  }
+                ></Image>
               </div>
             </div>
 

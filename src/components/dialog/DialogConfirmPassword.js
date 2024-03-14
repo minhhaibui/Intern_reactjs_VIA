@@ -48,11 +48,19 @@ export default function DialogConfirmPassword({
       console.error("Error:", error);
     }
   };
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const handleShowpassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const handleShowConfirmpassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 bottom-0 bg-TbackModal opacity-60"></div>
-      <div className="bg-white w-[560px] h-[385px] p-[24px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md">
+      <div className="fixed top-0 left-0 right-0 bottom-0 bg-TbackModal opacity-60 z-10"></div>
+      <div className="bg-white w-[560px] h-[385px] p-[24px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md z-50">
         <div className="flex justify-between items-center mb-6">
           <p className="font-semibold text-[19px] leading-6 text-Tblack">
             thiết lập mật khẩu mới
@@ -71,7 +79,7 @@ export default function DialogConfirmPassword({
         <form action="" onSubmit={handleSubmit}>
           <div className="flex flex-col justify-between mb-[27px]">
             {/* password */}
-            <div className="flex flex-col mt-6 mb-7">
+            <div className="flex flex-col mt-6 mb-7 relative">
               <label
                 className="text-Tblack mb-[4px] text-[16px] leading-5 font-normal"
                 htmlFor=""
@@ -79,16 +87,24 @@ export default function DialogConfirmPassword({
                 Mật Khẩu mới
               </label>
               <input
-                type="text"
+                type={showPassword ? "text" : "password"}
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 placeholder="Nhập mật khẩu..."
                 name="password"
                 className="block  p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
               />
+              <Image
+                onClick={handleShowpassword}
+                className=" absolute top-[30px] right-[7px] cursor-pointer"
+                alt="icon"
+                height={30}
+                width={30}
+                src={showPassword ? "/images/seeon.png" : "/images/seepw.png"}
+              ></Image>
             </div>
             {/* confirmPassword */}
-            <div className="flex flex-col ">
+            <div className="flex flex-col relative">
               <label
                 className="text-Tblack mb-[4px] text-[16px] leading-5 font-normal"
                 htmlFor=""
@@ -96,13 +112,25 @@ export default function DialogConfirmPassword({
                 Xác nhận mật khẩu mới
               </label>
               <input
-                type="text"
+                type={showConfirmPassword ? "text" : "password"}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Xác nhận mật khẩu..."
                 name="confirmPassword"
                 className="block  p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
               />
+              <Image
+                onClick={handleShowConfirmpassword}
+                className=" absolute top-[30px] right-[7px] cursor-pointer"
+                alt="icon"
+                height={30}
+                width={30}
+                src={
+                  showConfirmPassword
+                    ? "/images/seeon.png"
+                    : "/images/seepw.png"
+                }
+              ></Image>
             </div>
           </div>
           <div className="flex justify-center items-center">

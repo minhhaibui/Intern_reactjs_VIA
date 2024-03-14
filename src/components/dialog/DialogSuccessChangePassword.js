@@ -10,8 +10,8 @@ import { useNewPasswordContext } from "../context/NewPasswordContext";
 export default function DialogSuccessChangePassword() {
   return (
     <div>
-      <div className="fixed top-0 left-0 right-0 bottom-0 bg-TbackModal opacity-60"></div>
-      <div className="bg-white w-[660px] h-[280px] p-[24px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md">
+      <div className="fixed top-0 left-0 right-0 bottom-0 bg-TbackModal opacity-60 z-10"></div>
+      <div className="bg-white w-[660px] h-[280px] p-[24px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md z-50">
         <div className="flex justify-center items-center my-[26px]">
           <Image
             alt="icon"

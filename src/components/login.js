@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 import {
   validateUserName,
@@ -25,7 +26,13 @@ export default function Login() {
     useState(false);
   const [showDialogSuccessChangePassword, setShowDialogSuccessChangePassword] =
     useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
   const { otp, setOTP } = useOTP();
+
+  const handleShowpassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -128,7 +135,7 @@ export default function Login() {
               className="block p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
             />
           </div>
-          <div className="flex flex-col w-[35%]">
+          <div className="flex flex-col w-[35%] relative">
             <label
               className="text-Tblack mb-[4px] text-[16px] leading-5 font-normal"
               htmlFor=""
@@ -136,13 +143,21 @@ export default function Login() {
               Mật Khẩu
             </label>
             <input
-              type="text"
+              type={showPassword ? "text" : "password"}
               placeholder="Nhập mật khẩu..."
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               name="password"
               className="block p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
             />
+            <Image
+              onClick={handleShowpassword}
+              className=" absolute top-[30px] right-[7px] cursor-pointer"
+              alt="icon"
+              height={30}
+              width={30}
+              src={showPassword ? "/images/seeon.png" : "/images/seepw.png"}
+            ></Image>
           </div>
 
           <button

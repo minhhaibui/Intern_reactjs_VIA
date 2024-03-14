@@ -34,8 +34,8 @@ const DialogChangePassword = ({ onClose, show, setShow, showOTP }) => {
   };
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 bottom-0 bg-TbackModal opacity-60"></div>
-      <div className="bg-white w-[560px] h-[329px] p-[24px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md">
+      <div className="fixed top-0 left-0 right-0 bottom-0 bg-TbackModal opacity-60 z-10"></div>
+      <div className="bg-white w-[560px] h-[329px] p-[24px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md z-50">
         <div className="flex justify-between items-center">
           <p className="font-semibold text-[19px] leading-6 text-Tblack">
             yêu cầu thay đổi mật khẩu
