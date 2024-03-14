@@ -3,9 +3,11 @@ import { useState } from "react";
 import axios from "axios";
 import { validateRegister } from "../app/validate/validate_register";
 import DialogRegister from "./dialog/DialogRegister";
-import Services from "./Services";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
+  const router = useRouter();
   const [showDialog, setShowDialog] = useState(false);
   const [dialogSuccess, setDialogSuccess] = useState({
     message: "",
@@ -77,6 +79,27 @@ export default function Register() {
     setShowDialog(false);
   };
 
+  const handleOnLogin = async () => {
+    try {
+      const response = await axios.post(
+        "https://dev-fe-exam.viajsc.com/ExamUser/login",
+        { userName: formData.userName, password: formData.password }
+      );
+      console.log(">>>>>>>>>", response);
+      if (response?.data.success) {
+        router.push("home");
+        sessionStorage.setItem("userName", formData.userName);
+        sessionStorage.setItem("logined", true);
+        toast.success("login successfully");
+      } else {
+        toast.error(response?.data.error);
+      }
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   // call api city
   const [check, setcheck] = useState(true);
   const [cityData, setCityData] = useState([]);
@@ -116,17 +139,18 @@ export default function Register() {
 
   return (
     <>
-      <div className="flex justify-between mt-[140px]">
+      <div className=" w-3/5">
         {showDialog ? (
           <DialogRegister
             error={dialogSuccess.error}
             message={dialogSuccess.message}
             onClose={handleCloseDialog}
+            onLogin={handleOnLogin}
           ></DialogRegister>
         ) : (
           ""
         )}
-        <div className="rounded-md w-[800px]">
+        <div className="rounded-md">
           <p className=" uppercase text-center text-[25px] font-semibold text-Tyellow mb-[46px]">
             đăng kí tài khoản
           </p>
@@ -270,7 +294,7 @@ export default function Register() {
             </div>
 
             {/* row 4 */}
-            <div className="flex justify-between mb-[27px]">
+            <div className="flex flex-row-reverse justify-between mb-[27px]">
               {/* wards */}
               <div className="flex flex-col w-1/3-minus-24">
                 <label
@@ -395,9 +419,6 @@ export default function Register() {
               </button>
             </div>
           </form>
-        </div>
-        <div className="mt-[90px]">
-          <Services></Services>
         </div>
       </div>
     </>

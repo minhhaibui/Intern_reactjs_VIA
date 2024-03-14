@@ -105,14 +105,14 @@ export default function Login() {
       <span className="block text-white title font-semibold text-lg leading-6 mb-4 uppercase">
         Đăng Nhập ngay!
       </span>
-      <div className="w-[800px] bg-white h-[130px] p-6 rounded-md">
+      <div className=" bg-white h-[130px] p-6 rounded-md">
         <form
           id="form_login"
           action=""
           onSubmit={handleSubmit}
           className="flex justify-evenly "
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col w-[35%]">
             <label
               className="text-Tblack mb-[4px] text-[16px] leading-5 font-normal"
               htmlFor=""
@@ -125,10 +125,10 @@ export default function Login() {
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               name="userName"
-              className="block w-[290px] p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
+              className="block p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col w-[35%]">
             <label
               className="text-Tblack mb-[4px] text-[16px] leading-5 font-normal"
               htmlFor=""
@@ -141,12 +141,12 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               name="password"
-              className="block w-[290px] p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
+              className="block p-2 outline-none border-solid border-Tgray border-[1.5px] rounded-sm"
             />
           </div>
 
           <button
-            className="font-semibold text-white text-[16px] px-4 py-[8px] bg-Tyellow mt-[23px] rounded-sm"
+            className=" w-[15%] font-semibold text-white text-[16px] px-4 py-[8px] bg-Tyellow mt-[23px] rounded-sm"
             type="submit"
           >
             đăng nhập

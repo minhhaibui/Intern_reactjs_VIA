@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function DialogRegister({ error, message, onClose }) {
+export default function DialogRegister({ error, message, onClose, onLogin }) {
   return (
     <>
       <div className="fixed top-0 left-0 right-0 bottom-0 bg-TbackModal opacity-60"></div>
@@ -29,12 +29,22 @@ export default function DialogRegister({ error, message, onClose }) {
             : " để sử dụng dịch vụ thu hộ,bạn có muốn Ký kết hợp đồng điện tử ngay"}
         </p>
         <div className="flex justify-between my-6 px-[126px]">
-          <button
-            onClick={onClose}
-            className=" bg-Tgray text-4 font-sans px-[18px] py-[12px] rounded-sm leading-5 text-Tblack"
-          >
-            {error ? "< Bỏ qua đăng ký" : "Đăng nhập"}
-          </button>
+          {error ? (
+            <button
+              onClick={onClose}
+              className=" bg-Tgray text-4 font-sans px-[18px] py-[12px] rounded-sm leading-5 text-Tblack"
+            >
+              {"<"} Bỏ qua đăng ký
+            </button>
+          ) : (
+            <button
+              onClick={onLogin}
+              className=" bg-Tgray text-4 font-sans px-[18px] py-[12px] rounded-sm leading-5 text-Tblack"
+            >
+              Đăng nhập
+            </button>
+          )}
+
           <button
             onClick={onClose}
             className="bg-Tgreen text-4 font-sans px-[18px] py-[12px] rounded-sm leading-5 text-white"

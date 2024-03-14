@@ -18,11 +18,16 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-Tfooter h-[380px] text-[18px] text-white px-[86px] pt-[48px]">
+      <div className="bg-Tfooter h-[380px] text-[18px] text-white px-[86px] ">
         <div className=" flex justify-between items-center">
           <div>
-            <img className="w-[195px]" src="/images/logo.png" alt="icon" />
-            <p>CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ PHÁT TRIỂN ỨNG DỤNG THÔNG MINH VIỆT</p>
+            <img
+              className="w-[150px]"
+              src="/images/logoheader.png"
+              alt="icon"
+            />
+            <p>CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ PHÁT TRIỂN </p>
+            <p>ỨNG DỤNG THÔNG MINH VIỆT</p>
             <p>Mã Số Thuế: 0106494214</p>
             <p>Ngày hoạt động: 27/03/2014</p>
           </div>

@@ -1,6 +1,6 @@
 export default function Services() {
   return (
-    <div className="w-[350px] bg-BgGray p-4">
+    <div className=" bg-BgGray p-4 h-95% w-73%">
       <h3 className="text-center uppercase text-[19px] font-semibold leading-5">
         Địch vụ của chúng tôi
       </h3>

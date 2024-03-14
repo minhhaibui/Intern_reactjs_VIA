@@ -16,14 +16,14 @@ function Home() {
   }, []);
   return (
     <div>
-      <div className="absolute w-[700px] top-[4.75rem] right-[22.5rem]">
+      <div className="absolute w-[50%] top-[4.75rem] right-[22.5rem]">
         <SearchForm></SearchForm>
       </div>
       <div className="absolute w-[135px] top-[4rem] right-[5.5rem]">
         <Avatar></Avatar>
       </div>
       <main className="h-[482px] flex justify-between mt-[90px]  pr-[50px]">
-        <div className="flex justify-center items-center flex-col flex-1">
+        <div className="flex justify-center items-center flex-col w-3/5">
           <p className="text-[25px] uppercase font-semibold text-Tyellow mb-[52px]">
             bạn đã đăng nhập thành công
           </p>
@@ -32,7 +32,9 @@ function Home() {
             lại hệ thống
           </p>
         </div>
-        <Services></Services>
+        <div className="w-[32%]">
+          <Services></Services>
+        </div>
       </main>
     </div>
   );

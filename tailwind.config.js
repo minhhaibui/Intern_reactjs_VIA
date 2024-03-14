@@ -17,7 +17,6 @@ module.exports = {
         TbackModal: "#0D0F11",
         Tgray: "#A0ABBB",
         Tyellow: "#FDBA4D",
-
         Tfooter: "#DCA245 ",
         Tgreen: "#19B88B",
         Tred: "#DC2626",
@@ -30,6 +29,9 @@ module.exports = {
         "1/2-minus-24": "calc(50% - 24px)", // 100%/2 - 24px
         "1/3-minus-24": "calc((100% / 3) - 24px)", // 100%/3 - 24px
         "1/6-minus-16": "calc((100% / 6) - 16px)",
+        "23%": "calc(100% - 77%)",
+        "73%": "calc(100% - 27%)",
+        "95%": "calc(100% - 5%)",
       },
     },
   },
